@@ -1,0 +1,88 @@
+percorso per entrare nella cartella del progetto: /c/users/test/desktop/musa/lezione-47/my-git-project
+
+Git è un version control system, pensato per gestire qualunque cosa, da progetti piccoli a progetti molto grandi.
+Un version control system è un'entità che serve per semplificare la vita agli sviluppatori.
+Serve per gestire le versioni e l'avanzamento del nostro progetto: creiamo il folder del nostro progetto, con index.html, js, style, etc, come abbiamo fatto finora. Iniziamo a scrivere il codice poi lo proviamo. Quando poi iniziamo a fare delle modifiche, tutto si complica, che magari prima funzionava ed ora non funziona più. Ci sono dei metodi caserecci, per esempio duplico il file, poi inizio a fare le modifiche, se le cose non vanno posso tornare alla versione precedente. Finché è un solo file si può fare, ma quando iniziamo ad utilizzare i moduli, quando useremo react, con centinaia di file... come facciamo ad avere una copia del progetto? allora c'è chi duplica la cartella, che è legittimo ma è comunque un casino, primo perché occupiamo molto spazio sul computer, con migliaglia di file, ed altri limiti. Il problema è appunto avere un controllo sulle versioni del file, per avere dei backup. Questo è il concetto di 'versioning'. Così facendo però è un metodo molto manuale, dispendioso e inefficiente. Linus T., per sviluppare il sistema operativo utilizzava dei software di controllo gestione a pagamento, poi ha deciso di creare un sistema gratuito, disponibile a tutti, per gestire le versioni del progetto. Questo è Git.
+
+Quindi il vantaggio è quello di avere un controllo sulla gestione dei nostri progetti. È utile sopratutto se lavoriamo in un team. Ci sono tanti problemi che emergono quando si crea un codice complesso. Git si occupa di tutte le modifiche e gli update del progetto. Abbiamo la possibilità di utilizzare una repository, una cartella del progetto generale che può essere anche ospitata online, per esempio su GitHub. Li ci sono tutte le versioni del progetto. Quando il progetto viene sviluppato ognuno attinge da quel repository principale, ci lavora in locale, fa delle modifiche, o le features, che poi rimette su GitHub, dove normalmente il teamleader le revisiona e se va bene unisce quel codice al progetto principale. 
+Quindi Git serve ad avere localmente una versione funzionante, a creare tutte le versioni in fase di sviluppo del progetto e poi a caricarle su un repository centrale. Git funziona come una sorta di database, ma non ci interessa sapere come sono salvate le versioni all'interno di Git. Quello che ci interessa sapere è come accedere a tutte le versioni, a tutto lo storico che stiamo creando. E Git è potentissimo in questo.
+Preticamente, ogni step che salviamo del nostro progetto, facciamo una fotografia del codice, Git la ottimizza perché pesi meno, e riesce a confrontare quale riga abbiamo aggiunto o modificato rispetto alla versione precedente, ogni step è registrato e posso vedere le differenze di ogni singola riga di codice tra una versione e l'altra, ed eventualmente tornare indietro.
+
+Siccome è una cosa complessa ci sono tantissimi comandi che posso utilizzare per gestire questa cosa. I comandi vengono dati attraverso questa CLI: Command Line Interface.
+
+Quindi iniziamo un progetto:
+
+entriamo nella cartella con cd /c/...
+facciamo 
+ 
+ git init 
+ 
+per iniziare un nuovo progetto. Git crea una cartella .git, nascosta, che serve a Git per tenere traccia di tutte le versioni del nostro progetto (a noi non interessa accedere, per quello è nascosta) Le interazioni che faremo con i file dentro la cartella avverrà con la linea di comando o ci sono delle GUI (grafic user interface), che utilizzano le stesse logiche ma hanno un'interfaccia grafica. Saranno più intuitive, ma come sviluppatori è bene anche prendere confidenza con la command line. 
+
+con il comando 'ls', ci fornisce una lista dei file visibili all'interno della cartella.        
+con 'git status' andiamo a vedere lo status del nostro repository (del nostro progetto)
+
+'branch' = ramo, è una biforcazione in cui suddivideremo il codice. Ci sarà un ramo principale (master o main), poi quando nel nostro progetto sorgeranno delle features aggiuntive, anziché implementarle subito sul ramo principale, potremmo creare una deviazione (un branch) in cui andiamo a creare il codice per implementare quelle funzionalità, dopodiché possiamo rimetterle nel ramo principale. Di solito si arriva a fare un branch per ogni funzionalità, ogni feature. Se io sto lavorando su una parte del sito, mi faccio il mio branch e creo tutto il codice. Quando ho finito e ho testato il codice e funziona, lo rimetto nel main. 
+
+'commits' sono quelle azioni che servono per creare una fotografia del codice, un nuovo step, come dei punti nella storia, ogni volta che facciamo un commit salviamo un punto. 
+
+'untracked files': man mano dobbiamo dirgli quali file deve tracciare. Per aggiungere faccio git add 'nome file'. Una volta aggiunto un file posso fare un commit: ogni volta che faccio delle modifiche faccio git add per aggiungerle, poi faccio git commit. Un commit dopo l'altro, ne creo quanti me ne servono. È una cosa lineare, come una storyline. Il discorso del branch è come una ramificazione che si stacca dalla linea principale (ramo)... quando tutti sono pronti tutte le feature si riuniscono alla linea principale. 
+
+Quando facciamo un commit creiamo uno step. Ogni commit avrà un id che viene assegnato automaticamente da git, e noi possiamo aggiungere un messaggio per dire cosa abbiamo fatto all'interno di quel commit.
+
+git commit -m "messaggio"
+
+con 'git log' ci da l'id del commit, ci dice il branch, ci dice l'autore, la data e il messaggio 
+aggiungendo --oneline ci da le stesse info ma riassunte.
+
+vediamo l'immagine GIT:
+la parte remota per ora possiamo dimenticarla, è dedicata alla repository che verrà ospitato sul server remoto (GitHub, server aziendale, ecc)
+concentriamoci sulla parte locale: ci sono 3 fasi:
+1) la working directory: sono i file che ho salvato. Quando effettuo delle modifiche, vscode mi mette una M (modified) e se vedo lo status: dice che c'è stata una modifica. Quindi se faccio git add posso portare il file modificato dalla working directory alla staging area.
+2) un area di staging: serve a preparare man mano tutti i file che poi possono essere committati. 
+3) il repository vero e proprio: Una volta fatto il commit posso fare un push e metterlo nella repository remota. Posso fare anche l'operazione opposta (Git Pull). Per vedere tutti gli step della storia posso fare Git Checkout. 
+
+con 'git diff' -> se apporto una modifica (file diventa giallo) con questo comando posso vedere i cambiamenti apportati.
+
+
+Se io volessi andare a vedere com'era lo stato del codice prima posso farlo con git checkout:
+
+'git checkout 'id del commit che voglio vedere'
+
+'detached HEAD' significa che non stiamo più sulla linea temporale ma in uno stato distaccato, possiamo effettuare dei cambiamenti senza che questo comprometta lo stato principale. 
+Cambia anche la pagina index.html, allo stato precedente.
+
+la nostra head ora non è più sul branch principale (master), per ritornare uso il comando:
+
+'git checkout 'nome branch(master)'
+
+questo è utile se abbiamo cancellato dei pezzi e voglio andare a vedere com'era il codice in quel momento. Questo è utile per evitare, per esempio di lasciare commenti con cose vecchie sparse che magari riutilizzeremo. Possiamo recuperarlo con git checkout.
+
+con git restore torno indietro 
+
+una volta che faccio un commit, se poi mi accorgo di aver sbagliato, è meglio fare un altro commit ed andare avanti, invece che cancellarlo, perché ci possono essere più persone lavorando sullo stesso progetto. 
+
+se uso restore per un file nel workspace, scompare la modifica che avevo fatto, perché ho ripristinato il file allo stato del commit. Con cntr + Z su VScode, si ricorda lo storico, ma bisogna stare attenti. 
+
+Quindi questo è quello che faremo di solito, add, commit, checkout, status e log.
+
+Se volessi mettere uno stile css:
+
+stesso procedimento per aggiungere il file.
+
+con git restore --staged, tolgo i file dall'area di staging
+
+per aggiungere tutti i file in rosso nell'area di staging uso: git add .
+
+con git checkout 'commit id' vado a vedere la situazione ad un commit specifico
+con git checkout 'master' torno all'ultimo commit effettuato.
+
+Ipotizziamo uno scenario di un lavoro in quadra (o anche se lavoriamo da soli):
+Sono in una situazione in cui sto creando il mio sito, e di solito si usano i branch: il proncipale (main o master) che rappresente il sito così com'è (di solito rispecchia quello che c'è online). Quando gli sviluppatori lavorano sul sito, anziché lavorare nel master, lavorano su dei branch diversi: a partire dall'ultimo commit, si staccano da quello aprendono un nuovo branch. Questo serve a tenere master sempre pulito e funzionante (un codice solido pronto ad andare in produzione), e a volte ci sono anche degli automatismi, quindi quando facciamo un commit su master, automaticamente si aggiorna sul sito online, quindi è il branch sacro. Se vogliamo fare delle modifiche da provare quindi di solito usiamo un nuovo branch.
+
+facciamo un nuovo branch:
+
+git branch portfolio
+
+in questo branch faccio tutte le modifiche che voglio fare (di solito si fa un commit per ogni piccola task che si riesce a concludere)
+Quando sono contento del risultato, devo fare il merge, per far convergere il lavoro nel master. Dopodiché posso fare un altro branch etc.. e avanti così. 
