@@ -95,8 +95,14 @@ possiamo creare un branch per ogni tipo di task che vogliamo portare a termine, 
 
 una volta che ho fatto un merge, non ha più senso di esistere il branch, se ho bisogno di fare qualcos'altro posso fare un branch nuovo.:
 
+git branch -d portfolio
 
 
 Ci potrebbero essere delle situazioni un po' più intricate in cui io sto lavorando in un branch, ed altri che stavano lavorando ad altri branch hanno poi fatto un merge, quindi quando io voglio mergiare, il master non è più uguale a come era quando io ho fatto il mio merge, in questo caso, quando faccio il merge, git è intelligente e confronta le 2 versioni e chiede cosa vogliamo tenere e cosa no.
 
-ad esempio: 
+ad esempio: sto facendo la sezione contatti, e qualcuno o me stesso, che sta lavorando su un altro branch poi fa il merge e cambia il master.
+Quindi, nel mio branch non compaiono queste modifiche che però stanno nel master. Se io adesso volessi prendere le mie modifiche e fare un merge, git mi dice 'occhio che sono successe delle cose': questo nel caso in cui trova delle linee che non sa quali scegliere: dentro nel file explorer tutti i file che hanno dei conflitti vengono segnati in rosso con il punto esclamativo: quando non sa quale scegliere, le mette entrambe, e mi fa scegliere. Se più persone lavorano sullo stesso file c'è il rischio che si vada a sovrascrivere quello che ha scritto qualcun altro. 
+
+Una volta scelto, facciamo il merge, e infine facciamo il commit.
+
+Un altro comando utile: se stiamo scrivendo del codice, ma poi non siamo ancora pronti per il commit, ma vogliamo vedere qualcosa nel passato o in un altro branch, ci da errore, perché ci sono dei cambiamenti in corso, quindi non posso uscire da quel ramo. Devo prima fare il commit, Ma se io non sono ancora pronto per fare il commit, allora c'è un alternativa: git stash
