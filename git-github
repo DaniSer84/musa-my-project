@@ -105,4 +105,23 @@ Quindi, nel mio branch non compaiono queste modifiche che però stanno nel maste
 
 Una volta scelto, facciamo il merge, e infine facciamo il commit.
 
-Un altro comando utile: se stiamo scrivendo del codice, ma poi non siamo ancora pronti per il commit, ma vogliamo vedere qualcosa nel passato o in un altro branch, ci da errore, perché ci sono dei cambiamenti in corso, quindi non posso uscire da quel ramo. Devo prima fare il commit, Ma se io non sono ancora pronto per fare il commit, allora c'è un alternativa: git stash
+Un altro comando utile: se stiamo scrivendo del codice, ma poi non siamo ancora pronti per il commit, ma vogliamo vedere qualcosa nel passato o in un altro branch, ci da errore, perché ci sono dei cambiamenti in corso, quindi non posso uscire da quel ramo. Devo prima fare il commit, Ma se io non sono ancora pronto per fare il commit, allora c'è un alternativa: git stash: sposta le cose in una cartella tipo ripostiglio.
+
+Una volta che abbiamo preso confidenza con Git localmente, possiamo iniziare a vedere delle repository remote, come GitHub.
+(vedi tutorial)
+
+abbiamo fatto un add origin:
+
+git remote add origin https://github.com/DaniSer84/musa-my-project.git 
+
+con git push -u origin main pushamo il branch nella repository
+
+poi ci dice che il nostro branch master è collegato all''origin/master.
+
+ogni volta che voglio portare online le modifiche faccio git push
+
+per scaricare faccio:
+
+clone: può essere utilizzato sia con https sia con ssh, Davide consiglia ssh
+Io non c'ho capito un cazzo ed ho scaricato Git Desktop
+
