@@ -86,3 +86,17 @@ git branch portfolio
 
 in questo branch faccio tutte le modifiche che voglio fare (di solito si fa un commit per ogni piccola task che si riesce a concludere)
 Quando sono contento del risultato, devo fare il merge, per far convergere il lavoro nel master. Dopodiché posso fare un altro branch etc.. e avanti così. 
+
+Quando modifichiamo qualcosa, possiamo vederlo in git status e git diff, inoltre ci sono i colori di vscode che ci aiutano. 
+
+Quando sono soddisfatto del risultato faccio git add e git commit
+
+possiamo creare un branch per ogni tipo di task che vogliamo portare a termine, senza incasinare il codice: ogni feature prosegue sul suo branch, per esempio faccio il portfolio in un branch e la logica per gestire 2 lingue in un altro branch.
+
+una volta che ho fatto un merge, non ha più senso di esistere il branch, se ho bisogno di fare qualcos'altro posso fare un branch nuovo.:
+
+
+
+Ci potrebbero essere delle situazioni un po' più intricate in cui io sto lavorando in un branch, ed altri che stavano lavorando ad altri branch hanno poi fatto un merge, quindi quando io voglio mergiare, il master non è più uguale a come era quando io ho fatto il mio merge, in questo caso, quando faccio il merge, git è intelligente e confronta le 2 versioni e chiede cosa vogliamo tenere e cosa no.
+
+ad esempio: 
